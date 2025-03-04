@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-
-import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
-import {increment} from "../store/counter.actions";
+import {IncrementAction} from "../store/counter.actions";
 
 @Component({
   selector: 'app-counter-controls',
@@ -17,7 +15,7 @@ export class CounterControlsComponent implements OnInit{
 
   public increment() {
 
-    this.store.dispatch(increment());
+    this.store.dispatch(new IncrementAction(4));
 
   }
 
