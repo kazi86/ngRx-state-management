@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
+
 import {Store} from "@ngrx/store";
-import {IncrementAction} from "../store/counter.actions";
+import {decrement, increment} from "../store/counter.actions";
+import {describeResolvedType} from "@angular/compiler-cli/src/ngtsc/partial_evaluator";
 
 @Component({
   selector: 'app-counter-controls',
@@ -15,10 +17,14 @@ export class CounterControlsComponent implements OnInit{
 
   public increment() {
 
-    this.store.dispatch(new IncrementAction(4));
+    this.store.dispatch(increment({value : 2}));
 
   }
 
-  public decrement(){}
+  public decrement(){
+
+    this.store.dispatch(decrement({value : 2}));
+
+  }
 
 }
